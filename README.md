@@ -35,7 +35,7 @@ java -jar target/cron-parser-1.0-SNAPSHOT.jar "*/15 0 1,15 * 1-5 /usr/bin/find"
 
 4. View the output showing the expanded schedule for each field.
 
-##Running Tests
+## Running Tests
 
 To run the tests for the application, execute the following command in the project directory:
 
