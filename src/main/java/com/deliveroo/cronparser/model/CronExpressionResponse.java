@@ -13,20 +13,29 @@ public class CronExpressionResponse {
     }
 
     public void printResponse() {
-        StringBuffer buffer = new StringBuffer();
         for (CronField field : CronField.values()) {
-            appendField(buffer, field);
+            appendField(field);
         }
-        buffer.append(String.format("%-14s%s\n", "command", cronCommand));
-        System.out.print(buffer.toString());
+        System.out.println(String.format("%-14s%s", "command", cronCommand));
     }
 
-    private void appendField(StringBuffer buffer, CronField field) {
+    private void appendField(CronField field) {
         String fieldName = field.getFieldName();
         if (cronValues.containsKey(fieldName)) {
             List<Integer> values = cronValues.get(fieldName);
-            buffer.append(String.format("%-14s%s\n", fieldName, String.join(" ", values.toString())));
+            System.out.println(String.format("%-14s%s", fieldName, formatValues(values)));
         }
+    }
+
+    private String formatValues(List<Integer> values) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < values.size(); i++) {
+            if (i > 0) {
+                builder.append(" ");
+            }
+            builder.append(values.get(i));
+        }
+        return builder.toString();
     }
 
     public Map<String, List<Integer>> getCronValues() {
