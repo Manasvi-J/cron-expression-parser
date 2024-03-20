@@ -24,13 +24,24 @@ To use this application, follow these steps:
 
 1. Clone the repository to your local machine.
 2. Build the project using Maven or your preferred build tool.
+```
+mvn clean install
+```
 3. Run the application with the cron string as a single argument:
 
 ```
-java -jar cron-parser.jar "*/15 0 1,15 * 1-5 /usr/bin/find"
+java -jar target/cron-parser-1.0-SNAPSHOT.jar "*/15 0 1,15 * 1-5 /usr/bin/find"
 ```
 
 4. View the output showing the expanded schedule for each field.
+
+##Running Tests
+
+To run the tests for the application, execute the following command in the project directory:
+
+```
+mvn test
+```
 
 ## Requirements
 
